@@ -10,17 +10,16 @@ namespace levelup
         }
         Position position;
         int numPositions = 100;
-        public TestGameMap()
+        public GameMap()
         {
-            position = new Position();
-            
-            
+            position = new Position(10,20);
+                        
             
         }
 
         public Position getPositions()
         {
-            return position;
+            return new Position(10,20);
         }
         public void calculatePosition(Position startingPosition,DIRECTION direction)
         {
