@@ -15,17 +15,17 @@ namespace levelup
 
         }
 
-        public Position getPositions()
+       /* public Position getPositions()
         {
-            return position;
-        }
+            return new Position();
+        } */
         public void calculatePosition(Position startingPosition,DIRECTION direction)
         {
 
         }
         public bool isPositionValid(Point positionCoordinates)
         {
-
+                return true;
         }
 
         public int getTotalPositions()
