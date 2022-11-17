@@ -4,11 +4,11 @@ namespace levelup
 {
     public class Position
     {
-        Point Position {get; set;}
+        Point currentPosition {get; set;}
 
-        public Position (int xCoordinates, int yCoordinates) {
-            Position.xCoordinates = xCoordinates;
-            Position.yCoordinates = yCoordinates;
+        public currentPosition (int xCoordinates, int yCoordinates) {
+            currentPosition.xCoordinates = xCoordinates;
+            currentPosition.yCoordinates = yCoordinates;
         }
 
     }
