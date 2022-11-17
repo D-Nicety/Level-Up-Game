@@ -6,7 +6,7 @@ namespace levelup
     {
         Point currentPosition {get; set;}
 
-        public currentPosition (int xCoordinates, int yCoordinates) {
+        public Position (int xCoordinates, int yCoordinates) {
             currentPosition.xCoordinates = xCoordinates;
             currentPosition.yCoordinates = yCoordinates;
         }
