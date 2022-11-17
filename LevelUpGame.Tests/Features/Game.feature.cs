@@ -35,7 +35,7 @@ namespace LevelUpGame.Test.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Game", "![Gamer](./gamerErin.png | width=100)\n    I want to create a new custom character, setting th" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Game", "![Gamer](./gamerErin.png =250x250)\n    I want to create a new custom character, setting th" +
                     "eir name", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
