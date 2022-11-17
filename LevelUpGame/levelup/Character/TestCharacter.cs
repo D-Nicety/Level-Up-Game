@@ -8,7 +8,7 @@ namespace levelup
     {
         Name = DEFAULT_CHARACTER_NAME;
     }
-    public Character(string name)
+    public TestCharacter(string name)
     {
         //Name = name;
     }
