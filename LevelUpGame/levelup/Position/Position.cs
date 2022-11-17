@@ -7,8 +7,8 @@ namespace levelup
         Point currentPosition {get; set;}
 
         public Position (int xCoordinates, int yCoordinates) {
-            currentPosition.xCoordinates = xCoordinates;
-            currentPosition.yCoordinates = yCoordinates;
+            currentPosition.X = xCoordinates;
+            currentPosition.Y = yCoordinates;
         }
 
     }
