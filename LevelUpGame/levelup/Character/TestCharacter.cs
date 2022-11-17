@@ -19,6 +19,6 @@ namespace levelup
 
     public Position getPosition() 
     {
-        //TODO
+        //new
     }
 }
