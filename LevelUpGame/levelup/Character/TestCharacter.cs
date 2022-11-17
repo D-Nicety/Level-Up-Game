@@ -19,7 +19,7 @@ namespace levelup
 
     public Position getPosition() 
     {
-        //new
+        return new Position(0,0);
     }
 }
 }
