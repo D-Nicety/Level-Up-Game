@@ -1,6 +1,6 @@
 namespace levelup
 {
-    public class Character {
+    public class TestCharacter {
     string DEFAULT_CHARACTER_NAME = "Zelda";
     public string Name {get; set;}
 
