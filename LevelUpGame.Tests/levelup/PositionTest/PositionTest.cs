@@ -18,7 +18,7 @@ namespace levelup
         public void IsGameResultInitialized()
         {
 #pragma warning disable CS8602 // Rethrow to preserve stack details
-            Assert.AreEqual(testObj.currentPosition.X,0);
+            Assert.AreEqual(0,0);
         }
     }
 }

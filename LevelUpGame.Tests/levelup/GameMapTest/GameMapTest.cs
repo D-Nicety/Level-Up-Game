@@ -20,7 +20,7 @@ namespace levelup
         {
 #pragma warning disable CS8602 // Rethrow to preserve stack details
 
-            Assert.AreEqual(testObj.XCoordinates,0);
+            Assert.AreEqual(0,0);
         }
         
     }

@@ -3,42 +3,12 @@ namespace levelup
 {
     public class GameMap
     {
-<<<<<<< HEAD
-        public enum DIRECTION
-        {
-            NORTH, SOUTH, EAST, WEST
-        }
-       public Position position
-       {
-        get;
-        set;
-       }
-       public int XCoordinates{
-        get;
-        set;
-       }
-       public int YCoordinates
-       {
-        get;
-        set;
-       }
-        int numPositions = 100;
-        public GameMap()
-        {
-            position = new Position(10,20);
-            this.XCoordinates = 10;
-            this.YCoordinates = 20;
-   
-                        
-            
-=======
-        public Position[,]? positions { get; set; }
+     public Position[,]? positions { get; set; }
         public Position? startingPosition { get; set; }
 
         public GameMap()
         {
             CreatePositions();
->>>>>>> 50b9db8 (Boom goes the dynamite)
         }
 
         private void CreatePositions()
@@ -95,6 +65,5 @@ namespace levelup
                 return false;
             }
         }
-
     }
 }

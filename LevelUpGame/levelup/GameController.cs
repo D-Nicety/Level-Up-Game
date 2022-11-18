@@ -26,13 +26,8 @@ namespace levelup
         public GameController()
         {
             status.characterName = DEFAULT_CHARACTER_NAME;
-<<<<<<< HEAD
-            //Set current position to a nonsense place
-            status.currentPosition = new Point(-1,-1);
-=======
             //Set current position to a nonsense place until you figure out who should initialize
             status.currentPosition = new Position(-1,-1);
->>>>>>> 50b9db8 (Boom goes the dynamite)
             status.moveCount = 0;
         }
 
