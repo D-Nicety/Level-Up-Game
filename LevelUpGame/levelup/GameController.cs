@@ -8,6 +8,8 @@ namespace levelup
         // TODO: If your stakeholder wants to call this CHARACTER, change var name for
         // low representational gap
         public readonly string DEFAULT_CHARACTER_NAME = "Character";
+        public Character? character { get; set; }
+        public GameMap? gameMap { get; set; }
 
         public record struct GameStatus(
             // TODO: Add other status data
@@ -28,6 +30,7 @@ namespace levelup
             status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place
             status.currentPosition = new Point(-1,-1);
+            status.moveCount = 0;
         }
 
         // Pre-implemented to demonstrate ATDD
