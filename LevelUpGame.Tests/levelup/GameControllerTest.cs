@@ -39,16 +39,6 @@ namespace levelup
         }
 
         [Test]
-        public void StartGameEntersMapAndUpdatesStatus() 
-        {
-            FakeGameMap fakeMap = new FakeGameMap();
-            testObj.gameMap = fakeMap;
-            testObj.StartGame();
-            Assert.AreEqual(fakeMap.startingPosition.x, testObj.GetStatus().currentPosition.x);
-            Assert.AreEqual(fakeMap.startingPosition.y, testObj.GetStatus().currentPosition.y);
-        }
-
-        [Test]
         public void MoveDelegatesToCharacter()
         {
             MockCharacter mockChar = new MockCharacter("");
