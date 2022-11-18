@@ -1,12 +1,9 @@
 
-using System.Drawing;
 
 namespace levelup
 {
     public class GameController
     {
-        // TODO: If your stakeholder wants to call this CHARACTER, change var name for
-        // low representational gap
         public readonly string DEFAULT_CHARACTER_NAME = "Character";
         public Character? character { get; set; }
         public GameMap? gameMap { get; set; }
@@ -14,7 +11,8 @@ namespace levelup
         public record struct GameStatus(
             // TODO: Add other status data
             String characterName,
-            Point currentPosition
+            Position currentPosition,
+            int moveCount
         );
 
         // TODO: Ensure this AND CLI commands match domain model
@@ -28,23 +26,27 @@ namespace levelup
         public GameController()
         {
             status.characterName = DEFAULT_CHARACTER_NAME;
+<<<<<<< HEAD
             //Set current position to a nonsense place
             status.currentPosition = new Point(-1,-1);
+=======
+            //Set current position to a nonsense place until you figure out who should initialize
+            status.currentPosition = new Position(-1,-1);
+>>>>>>> 50b9db8 (Boom goes the dynamite)
             status.moveCount = 0;
         }
 
-        // Pre-implemented to demonstrate ATDD
-        // TODO: Update this if it does not match your design
         public void CreateCharacter(String name)
         {
             if (name != null && !name.Equals(""))
             {
-                this.status.characterName = name;
+                this.character = new Character(name);   
             }
             else
             {
-                this.status.characterName = DEFAULT_CHARACTER_NAME;
+                this.character = new Character(DEFAULT_CHARACTER_NAME);
             }
+            this.status.characterName = character.Name;
         }
 
         public void StartGame()
@@ -70,12 +72,17 @@ namespace levelup
             this.status.currentPosition = character.Position;
             this.status.moveCount = character.moveCount;
         }
-    public void SetCharacterPosition(Point coordinates)
-    {
-        //TODO : IMPLEMENT THIS TO SET CHARACTER CURRENT POSITION - exists to be testable
-    }
 
+        public void SetCharacterPosition(int x, int y)
+        {
+           character.Position = new Position(x,y);
+           this.status.currentPosition = character.Position;
+        }
 
-
+        public void SetMoveCount(int moveCount)
+        {
+            character.moveCount = moveCount;
+            this.status.moveCount = character.moveCount;
+        }
     }
 }

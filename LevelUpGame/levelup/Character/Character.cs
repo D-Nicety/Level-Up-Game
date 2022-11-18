@@ -1,25 +1,43 @@
+
 namespace levelup
 {
-    public class Character {
-    string DEFAULT_CHARACTER_NAME = "Zelda";
-    public string Name {get; set;}
+    public class Character
+    {
+        public string? Name { get; set; }
+        public Position? Position { get; set; }
+        public GameMap? gameMap { get; set; }
 
-    public Character()
-    {
-        Name = DEFAULT_CHARACTER_NAME;
-    }
-    public Character(string name)
-    {
-        //Name = name;
-    }
-    public void enterMap(GameMap map) 
-    {
-        //TODO
-    }
+        public int moveCount { get; set; }
 
-    public Position getPosition() 
-    {
-        return new Position(0,0);
+        public Character(string name)
+        {
+            this.Name = name;
+            this.moveCount = 0;
+        }
+
+        public Character()
+        {
+            this.Name = "";
+            this.moveCount = 0;
+        }
+
+        public void EnterMap(GameMap map)
+        {
+            this.gameMap = map;
+            this.Position = map.startingPosition;
+        }
+
+        public virtual void Move(GameController.DIRECTION direction)
+        {
+            if (this.gameMap != null)
+            {
+                this.Position = gameMap.CalculateNewPosition(this.Position, direction);
+                this.moveCount+=1;
+            }
+            else {
+                this.Position = null;
+            }
+        }
+
     }
-}
 }
