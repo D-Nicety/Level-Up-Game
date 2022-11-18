@@ -3,25 +3,26 @@ using levelup;
 
 namespace levelup
 {
-     /*
+     
     [TestFixture]
-    public class PrimeService_IsPrimeShould
+    public class GameMapTest
     {
-        private GameController? testObj;
+        private GameMap? testObj;
 
         [SetUp]
         public void SetUp()
         {
-            testObj = new GameController();
+            testObj = new GameMap();
         }
 
         [Test]
-        public void IsGameResultInitialized()
+        public void isPositionValid()
         {
 #pragma warning disable CS8602 // Rethrow to preserve stack details
-            Assert.IsNotNull(testObj.GetStatus());
+
+            Assert.AreEqual(testObj.XCoordinates,0);
         }
         
     }
-     */
+     
 }

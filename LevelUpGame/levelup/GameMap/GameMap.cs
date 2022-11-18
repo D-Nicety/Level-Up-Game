@@ -8,11 +8,27 @@ namespace levelup
         {
             NORTH, SOUTH, EAST, WEST
         }
-        Position position;
+       public Position position
+       {
+        get;
+        set;
+       }
+       public int XCoordinates{
+        get;
+        set;
+       }
+       public int YCoordinates
+       {
+        get;
+        set;
+       }
         int numPositions = 100;
         public GameMap()
         {
             position = new Position(10,20);
+            this.XCoordinates = 10;
+            this.YCoordinates = 20;
+   
                         
             
         }
