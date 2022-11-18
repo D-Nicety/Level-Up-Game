@@ -17,7 +17,7 @@ namespace levelup
 
         public Character()
         {
-            this.Name = "";
+            this.Name = "The Bankanator";
             this.moveCount = 0;
         }
 
