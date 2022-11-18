@@ -49,9 +49,14 @@ namespace levelup
 
         public void StartGame()
         {
-            // TODO: Implement startGame - Should probably create tiles and put the character
-            // on them?
-            // TODO: Should also update the game status?
+            gameMap = new GameMap();
+            if (character == null)
+            {
+                CreateCharacter("");
+            }
+            character.EnterMap(gameMap);
+            this.status.characterName = character.Name;
+            this.status.currentPosition = character.Position;
         }
 
         public GameStatus GetStatus()
@@ -61,8 +66,9 @@ namespace levelup
 
         public void Move(DIRECTION directionToMove)
         {
-            //TODO: Implement move - should call something on another class
-            //TODO: Should probably also update the game status
+            character.Move(directionToMove);
+            this.status.currentPosition = character.Position;
+            this.status.moveCount = character.moveCount;
         }
     public void SetCharacterPosition(Point coordinates)
     {
