@@ -1,5 +1,3 @@
-
-
 namespace levelup
 {
     public class GameController
@@ -8,8 +6,10 @@ namespace levelup
         public Character? character { get; set; }
         public GameMap? gameMap { get; set; }
 
+        GameStatus status = new();
+
         public record struct GameStatus(
-            // TODO: Add other status data
+            // TODO: Add other status data, like gameStatus for WHAMMIE, BIG BUCKS
             String characterName,
             Position currentPosition,
             int moveCount
@@ -21,27 +21,25 @@ namespace levelup
             NORTH, SOUTH, EAST, WEST
         }
 
-        GameStatus status = new GameStatus();
-
         public GameController()
         {
             status.characterName = DEFAULT_CHARACTER_NAME;
             //Set current position to a nonsense place until you figure out who should initialize
-            status.currentPosition = new Position(-1,-1);
+            status.currentPosition = new Position(-1, -1);
             status.moveCount = 0;
         }
 
         public void CreateCharacter(String name)
         {
-            if (name != null && !name.Equals(""))
+            if (!string.IsNullOrEmpty(name))
             {
-                this.character = new Character(name);   
+                this.character = new Character(name);
             }
             else
             {
                 this.character = new Character(DEFAULT_CHARACTER_NAME);
             }
-            this.status.characterName = character.Name;
+            status.characterName = character.Name;
         }
 
         public void StartGame()
@@ -70,8 +68,8 @@ namespace levelup
 
         public void SetCharacterPosition(int x, int y)
         {
-           character.Position = new Position(x,y);
-           this.status.currentPosition = character.Position;
+            character.Position = new Position(x, y);
+            this.status.currentPosition = character.Position;
         }
 
         public void SetMoveCount(int moveCount)

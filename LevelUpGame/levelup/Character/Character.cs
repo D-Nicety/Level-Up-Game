@@ -1,4 +1,3 @@
-
 namespace levelup
 {
     public class Character
@@ -17,7 +16,7 @@ namespace levelup
 
         public Character()
         {
-            this.Name = "The Bankanator";
+            this.Name = "Player 1";
             this.moveCount = 0;
         }
 
@@ -32,9 +31,10 @@ namespace levelup
             if (this.gameMap != null)
             {
                 this.Position = gameMap.CalculateNewPosition(this.Position, direction);
-                this.moveCount+=1;
+                this.moveCount += 1;
             }
-            else {
+            else
+            {
                 this.Position = null;
             }
         }
