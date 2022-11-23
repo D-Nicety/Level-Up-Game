@@ -2,7 +2,6 @@ namespace levelup
 {
     public class Position
     {
-        // git change for test remove the next time you see this
         public int X { get; set; }
         public int Y { get; set; }
 
