@@ -39,7 +39,7 @@ namespace levelup
             {
                 this.character = new Character(DEFAULT_CHARACTER_NAME);
             }
-            status.characterName = character.Name;
+            status.characterName = name;
         }
 
         public void StartGame()
