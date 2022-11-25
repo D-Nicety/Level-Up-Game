@@ -47,7 +47,7 @@ namespace levelup
             gameMap = new GameMap();
             if (character == null)
             {
-                CreateCharacter("DEFAULT_CHARACTER_NA");
+                CreateCharacter(DEFAULT_CHARACTER_NAME);
             }
             character.EnterMap(gameMap);
             this.status.characterName = character.Name;
