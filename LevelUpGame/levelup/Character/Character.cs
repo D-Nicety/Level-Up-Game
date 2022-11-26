@@ -2,22 +2,22 @@ namespace levelup
 {
     public class Character
     {
-        public string? Name { get; set; }
-        public Position? Position { get; set; }
-        public GameMap? gameMap { get; set; }
+        public string Name { get; set; }
+        public Position Position { get; set; }
+        public GameMap gameMap { get; set; }
 
-        public int moveCount { get; set; }
+        public int MoveCount { get; set; }
 
         public Character(string name)
         {
-            this.Name = name;           
-            this.moveCount = 0;
+            Name = name;           
+            MoveCount = 0;
         }
 
         public void EnterMap(GameMap map)
         {
             this.gameMap = map;
-            this.Position = map.startingPosition;
+            this.Position = map.StartingPosition;
         }
 
         public virtual void Move(GameController.DIRECTION direction)
@@ -25,7 +25,7 @@ namespace levelup
             if (this.gameMap != null)
             {
                 this.Position = gameMap.CalculateNewPosition(this.Position, direction);
-                this.moveCount += 1;
+                this.MoveCount += 1;
             }
             else
             {

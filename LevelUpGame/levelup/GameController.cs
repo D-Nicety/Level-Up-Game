@@ -1,3 +1,5 @@
+using static System.Net.Mime.MediaTypeNames;
+
 namespace levelup
 {
     public class GameController
@@ -8,14 +10,16 @@ namespace levelup
 
         GameStatus status = new();
 
-        public record struct GameStatus(
+        public struct GameStatus {
             // TODO: Add other status data, like gameStatus for WHAMMIE, BIG BUCKS
-            String characterName,
-            Position currentPosition,
-            int moveCount
-        );
+            public String characterName;
+            public Position currentPosition;
+            public int moveCount;
 
-        // TODO: Ensure this AND CLI commands match domain model
+               public override string ToString() =>
+                    $"Character Name: {characterName}; Position: X = {currentPosition.X} Y = {currentPosition.Y}; Moves: {moveCount}";
+        };
+
         public enum DIRECTION
         {
             NORTH, SOUTH, EAST, WEST
@@ -49,6 +53,7 @@ namespace levelup
         {
             gameMap = new GameMap();
             character ??= CreateCharacter(DEFAULT_CHARACTER_NAME);
+            character.Position = new Position(0, 0);
             character.EnterMap(gameMap);
             this.status.characterName = character.Name;
             this.status.currentPosition = character.Position;
@@ -63,7 +68,7 @@ namespace levelup
         {
             character.Move(directionToMove);
             this.status.currentPosition = character.Position;
-            this.status.moveCount = character.moveCount;
+            this.status.moveCount = character.MoveCount;
         }
 
         public void SetCharacterPosition(int x, int y)
@@ -74,8 +79,8 @@ namespace levelup
 
         public void SetMoveCount(int moveCount)
         {
-            character.moveCount = moveCount;
-            this.status.moveCount = character.moveCount;
+            character.MoveCount = moveCount;
+            this.status.moveCount = character.MoveCount;
         }
 
         //public override string ToString()

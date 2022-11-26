@@ -2,8 +2,8 @@ namespace levelup
 {
     public class GameMap
     {
-        public Position[,]? positions { get; set; }
-        public Position? startingPosition { get; set; }
+        public Position[,]? Positions { get; set; }
+        public Position? StartingPosition { get; set; }
 
         public GameMap()
         {
@@ -12,16 +12,16 @@ namespace levelup
 
         private void CreatePositions()
         {
-            positions = new Position[10, 10];
+            Positions = new Position[10, 10];
             for (int x = 0; x < 10; x++)
             {
                 for (int y = 0; y < 10; y++)
                 {
                     Position pos = new Position(x, y);
-                    positions[x, y] = pos;
+                    Positions[x, y] = pos;
                 }
             }
-            startingPosition = positions[0, 0];
+            StartingPosition = Positions[0, 0];
         }
 
         public virtual Position CalculateNewPosition(Position currentPosition, GameController.DIRECTION direction)
