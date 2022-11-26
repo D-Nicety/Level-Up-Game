@@ -10,13 +10,7 @@ namespace levelup
 
         public Character(string name)
         {
-            this.Name = name;
-            this.moveCount = 0;
-        }
-
-        public Character()
-        {
-            this.Name = "Player 1";
+            this.Name = name;           
             this.moveCount = 0;
         }
 

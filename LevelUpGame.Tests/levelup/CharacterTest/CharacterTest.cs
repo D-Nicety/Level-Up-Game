@@ -11,7 +11,7 @@ namespace levelup
         [SetUp]
         public void SetUp()
         {
-            testObj = new Character();
+            testObj = new Character(string.Empty);
         }
 
         [Test]

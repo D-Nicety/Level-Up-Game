@@ -29,26 +29,26 @@ namespace levelup
             status.moveCount = 0;
         }
 
-        public void CreateCharacter(String name)
+        public Character CreateCharacter(String name)
         {
+            Character character;
+            
             if (!string.IsNullOrEmpty(name))
             {
-                this.character = new Character(name);
+                character = new Character(name);
             }
             else
-            {
-                this.character = new Character(DEFAULT_CHARACTER_NAME);
+            {                
+                character = new Character(DEFAULT_CHARACTER_NAME);
             }
             status.characterName = name;
+            return character;
         }
 
         public void StartGame()
         {
             gameMap = new GameMap();
-            if (character == null)
-            {
-                CreateCharacter(DEFAULT_CHARACTER_NAME);
-            }
+            character ??= CreateCharacter(DEFAULT_CHARACTER_NAME);
             character.EnterMap(gameMap);
             this.status.characterName = character.Name;
             this.status.currentPosition = character.Position;
@@ -77,5 +77,13 @@ namespace levelup
             character.moveCount = moveCount;
             this.status.moveCount = character.moveCount;
         }
+
+        //public override string ToString()
+        //{
+        //    if (character != null && character.Name != null)
+        //    {
+        //        return character.Name;
+        //    }            
+        //}
     }
 }

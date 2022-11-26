@@ -106,8 +106,9 @@ class Game
 
     static void CreateCharacter()
     {
-        var characterName = Prompt.Input<string>("What is your character's name?");
-        gameController.CreateCharacter(characterName);
+        var characterName = Prompt.Input<string>("What is your character's name?");        
+        gameController.character = gameController.CreateCharacter(characterName);
+
         var gameStatusCharacterName = gameController.GetStatus().characterName;
         Console.WriteLine($"Your character, {gameStatusCharacterName}, is created!");
     }
@@ -168,6 +169,7 @@ class Game
     private static void updateStatus(GameController.GameStatus status)
     {
         gameHistory.Add(status);
+        Console.WriteLine(status);
     }
 
 
