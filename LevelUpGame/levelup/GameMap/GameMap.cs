@@ -1,13 +1,47 @@
+using System.Runtime.CompilerServices;
+
 namespace levelup
 {
     public class GameMap
     {
+        public const int NUM_WHAMMIES = 2;
+        public const int NUM_CASH = 10;
+
         public Position[,]? Positions { get; set; }
         public Position? StartingPosition { get; set; }
+
+        public List<Position> WhammiePositions { get; set; }
+        public List<Position> CashPositions { get; set; }
 
         public GameMap()
         {
             CreatePositions();
+            CashPositions = CreateCash();
+            WhammiePositions = CreateWhammies();
+        }
+        private List<Position> CreateWhammies()
+        {
+            List<Position> whammiePositions = new List<Position>();
+            Random r = new();
+            for (int i = 0; i < NUM_CASH; i++)
+            {
+                //Position whammiePosition = new Position(r.Next(0, 9), r.Next(0, 9));
+                Position whammiePosition = new Position(1, 1);
+                whammiePositions.Add(whammiePosition);
+            }
+            return whammiePositions;
+        }
+
+        private List<Position> CreateCash()
+        {
+            List<Position> cashPositions = new List<Position>();
+            Random r = new();
+            for (int i = 0; i < NUM_CASH; i++)
+            {
+                Position cashPosition = new Position(r.Next(0,9), r.Next(0,9));
+                cashPositions.Add(cashPosition);
+            }
+            return cashPositions;
         }
 
         private void CreatePositions()
@@ -54,9 +88,19 @@ namespace levelup
             }
         }
 
-        public static bool IsPositionValid(Position pos)
+        public bool IsPositionValid(Position position)
         {
-            return (pos.X >= 0 && pos.X < 10 && pos.Y >= 0 && pos.Y < 10);
+            return (position.X >= 0 && position.X < 10 && position.Y >= 0 && position.Y < 10);
+        }
+
+        public bool IsPositionWhammie(Position position)
+        {
+            return WhammiePositions.Exists(p => p.X == position.X && p.Y == position.Y);
+        }
+
+        public bool IsPositionCash(Position position)
+        {
+            return CashPositions.Exists(p => p.X == position.X && p.Y == position.Y);
         }
     }
 }

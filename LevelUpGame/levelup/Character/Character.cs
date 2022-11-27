@@ -8,6 +8,9 @@ namespace levelup
 
         public int MoveCount { get; set; }
 
+        public int WhammieCount { get; set; } = 0;
+        public int CashBalance { get; set; } = 0;
+
         public Character(string name)
         {
             Name = name;           

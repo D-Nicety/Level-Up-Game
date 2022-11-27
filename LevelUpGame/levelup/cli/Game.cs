@@ -118,7 +118,7 @@ class Game
         gameController.StartGame();
         // TODO: Update this prompt. Also, do you want to get the game status and tell
         // the character where their character is?
-        Console.WriteLine("Welcome to Forests and Monsters! You have entered a mysterious place.");
+        Console.WriteLine("Welcome to BIG BUCKS, NO WHAMMIES!!! See how much money you can get.  Be carefull because the Whammie will take all of your money.  You get 20 moves to collect as much mulah as possible!");
     }
     static void MoveNorth()
     {
@@ -148,7 +148,7 @@ class Game
         if (answer == true)
         {
             //TODO: PRINT FINAL SUMMARY
-            Console.WriteLine("You exit the mysterious world.");
+            Console.WriteLine("See ya next time!");
             PrintSummary();
             Environment.Exit(0);
         }
@@ -156,7 +156,7 @@ class Game
 
     static void PrintSummary()
     {
-        Console.WriteLine("Exiting the mysterious land!");
+        Console.WriteLine("The Whammie sure will miss you!");
         foreach (GameController.GameStatus status in gameHistory)
         {
             // TODO: Override toString on game status to print pretty

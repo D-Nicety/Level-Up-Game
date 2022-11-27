@@ -1,3 +1,4 @@
+using System.Globalization;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace levelup
@@ -15,9 +16,10 @@ namespace levelup
             public String characterName;
             public Position currentPosition;
             public int moveCount;
+            public string message;
 
                public override string ToString() =>
-                    $"Character Name: {characterName}; Position: X = {currentPosition.X} Y = {currentPosition.Y}; Moves: {moveCount}";
+                    $"Character Name: {characterName}; Position: X = {currentPosition.X} Y = {currentPosition.Y}; Moves: {moveCount}\n{message}";
         };
 
         public enum DIRECTION
@@ -55,13 +57,13 @@ namespace levelup
             character ??= CreateCharacter(DEFAULT_CHARACTER_NAME);
             character.position = new Position(0, 0);
             character.EnterMap(gameMap);
-            this.status.characterName = character.Name;
-            this.status.currentPosition = character.position;
+            status.characterName = character.Name;
+            status.currentPosition = character.position;
         }
 
         public GameStatus GetStatus()
         {
-            return this.status;
+            return status;
         }
 
         public void Move(DIRECTION directionToMove)
@@ -70,7 +72,25 @@ namespace levelup
                 character.Move(directionToMove);
                 status.currentPosition = character.position;
                 status.moveCount = character.MoveCount;
+                if (character.gameMap.IsPositionWhammie(character.position))
+                {
+                    status.message = $"Whammie just took all your cash ({character.CashBalance})!";
+                    character.CashBalance = 0;
+                    character.WhammieCount++;
+                }
+                else if (character.gameMap.IsPositionCash(character.position))
+                {
+                    var cash = new Random().Next(10, 1000);
+                    status.message = $"You found {cash.ToString("C", CultureInfo.CurrentCulture)} !!";
+                    character.CashBalance += cash;                    
+                }
+                else
+                {
+                    status.message = "";
+                }
+
             }
+
         }
 
         public void SetCharacterPosition(int x, int y)
