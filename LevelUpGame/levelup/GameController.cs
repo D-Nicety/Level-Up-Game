@@ -53,10 +53,10 @@ namespace levelup
         {
             gameMap = new GameMap();
             character ??= CreateCharacter(DEFAULT_CHARACTER_NAME);
-            character.Position = new Position(0, 0);
+            character.position = new Position(0, 0);
             character.EnterMap(gameMap);
             this.status.characterName = character.Name;
-            this.status.currentPosition = character.Position;
+            this.status.currentPosition = character.position;
         }
 
         public GameStatus GetStatus()
@@ -66,29 +66,29 @@ namespace levelup
 
         public void Move(DIRECTION directionToMove)
         {
-            character.Move(directionToMove);
-            this.status.currentPosition = character.Position;
-            this.status.moveCount = character.MoveCount;
+            if (character != null) { 
+                character.Move(directionToMove);
+                status.currentPosition = character.position;
+                status.moveCount = character.MoveCount;
+            }
         }
 
         public void SetCharacterPosition(int x, int y)
         {
-            character.Position = new Position(x, y);
-            this.status.currentPosition = character.Position;
+            if (character != null)
+            {
+                character.position = new Position(x, y);
+                status.currentPosition = character.position;
+            }
         }
 
         public void SetMoveCount(int moveCount)
         {
-            character.MoveCount = moveCount;
-            this.status.moveCount = character.MoveCount;
+            if (character != null)
+            {
+                character.MoveCount = moveCount;
+                status.moveCount = character.MoveCount;
+            }
         }
-
-        //public override string ToString()
-        //{
-        //    if (character != null && character.Name != null)
-        //    {
-        //        return character.Name;
-        //    }            
-        //}
     }
 }

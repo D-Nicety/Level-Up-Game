@@ -3,7 +3,7 @@ namespace levelup
     public class Character
     {
         public string Name { get; set; }
-        public Position Position { get; set; }
+        public Position position { get; set; }
         public GameMap gameMap { get; set; }
 
         public int MoveCount { get; set; }
@@ -12,24 +12,29 @@ namespace levelup
         {
             Name = name;           
             MoveCount = 0;
+            gameMap = new GameMap();
+            position = new(0,0);
         }
 
         public void EnterMap(GameMap map)
         {
-            this.gameMap = map;
-            this.Position = map.StartingPosition;
+            gameMap = map;
+            if (map.StartingPosition == null)
+            {
+                map.StartingPosition = position;
+            }
+            else
+            {
+                position = map.StartingPosition;
+            }            
         }
 
         public virtual void Move(GameController.DIRECTION direction)
         {
-            if (this.gameMap != null)
+            if (gameMap != null)
             {
-                this.Position = gameMap.CalculateNewPosition(this.Position, direction);
-                this.MoveCount += 1;
-            }
-            else
-            {
-                this.Position = null;
+                position = gameMap.CalculateNewPosition(position, direction);
+                MoveCount += 1;
             }
         }
     }

@@ -54,7 +54,7 @@ namespace levelup
             }
         }
 
-        public bool IsPositionValid(Position pos)
+        public static bool IsPositionValid(Position pos)
         {
             return (pos.X >= 0 && pos.X < 10 && pos.Y >= 0 && pos.Y < 10);
         }
